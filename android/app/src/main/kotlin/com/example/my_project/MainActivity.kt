@@ -1,6 +1,4 @@
-package cachet.plugins.health_example
-
-import android.os.Bundle
+package com.flutterflow.healthkittest
 
 import io.flutter.embedding.android.FlutterActivity
 
