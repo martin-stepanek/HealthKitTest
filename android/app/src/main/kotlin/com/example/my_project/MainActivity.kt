@@ -1,4 +1,4 @@
-package com.flutterflow.healthkittest
+package com.flutterflow.healthkittest2
 
 import io.flutter.embedding.android.FlutterActivity
 
