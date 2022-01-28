@@ -4,20 +4,20 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 class FFButtonOptions {
   const FFButtonOptions({
-    this.textStyle,
-    this.elevation,
-    this.height,
-    this.width,
-    this.padding,
-    this.color,
-    this.disabledColor,
-    this.disabledTextColor,
-    this.splashColor,
-    this.iconSize,
-    this.iconColor,
-    this.iconPadding,
-    this.borderRadius,
-    this.borderSide,
+    required this.textStyle,
+    required this.elevation,
+    required this.height,
+    required this.width,
+    required this.padding,
+    required this.color,
+    required this.disabledColor,
+    required this.disabledTextColor,
+    required this.splashColor,
+    required this.iconSize,
+    required this.iconColor,
+    required this.iconPadding,
+    required this.borderRadius,
+    required this.borderSide,
   });
 
   final TextStyle textStyle;
@@ -38,12 +38,12 @@ class FFButtonOptions {
 
 class FFButtonWidget extends StatefulWidget {
   const FFButtonWidget({
-    Key key,
-    @required this.text,
-    @required this.onPressed,
-    this.icon,
-    this.iconData,
-    @required this.options,
+    required Key key,
+    required this.text,
+    required this.onPressed,
+    required this.icon,
+    required this.iconData,
+    required this.options,
     this.showLoadingIndicator = true,
   }) : super(key: key);
 

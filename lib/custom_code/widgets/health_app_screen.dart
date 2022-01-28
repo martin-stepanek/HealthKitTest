@@ -12,9 +12,9 @@ class HealthAppScreen extends StatefulWidget {
   _HealthAppState createState() => _HealthAppState();
 
   const HealthAppScreen({
-    Key key,
-    this.width,
-    this.height,
+    required Key key,
+    required this.width,
+    required this.height,
   }) : super(key: key);
 
   final double width;
@@ -116,11 +116,6 @@ class _HealthAppState extends State<HealthAppScreen> {
       HealthDataAccess.READ_WRITE,
       HealthDataAccess.READ_WRITE
     ];
-    bool hasPermissions =
-        await HealthFactory.hasPermissions(types, permissions: rights);
-    if (hasPermissions == false) {
-      await health.requestAuthorization(types, permissions: permissions);
-    }
 
     _mgdl = Random().nextInt(10) * 1.0;
     bool success = await health.writeHealthData(
@@ -147,18 +142,9 @@ class _HealthAppState extends State<HealthAppScreen> {
     bool requested = await health.requestAuthorization([HealthDataType.STEPS]);
 
     if (requested) {
-      try {
-        steps = await health.getTotalStepsInInterval(midnight, now);
-      } catch (error) {
+      try {} catch (error) {
         print("Caught exception in getTotalStepsInInterval: $error");
       }
-
-      print('Total number of steps: $steps');
-
-      setState(() {
-        _nofSteps = (steps == null) ? 0 : steps;
-        _state = (steps == null) ? AppState.NO_DATA : AppState.STEPS_READY;
-      });
     } else {
       print("Authorization not granted");
       setState(() => _state = AppState.DATA_NOT_FETCHED);

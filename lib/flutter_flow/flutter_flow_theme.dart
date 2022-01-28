@@ -55,13 +55,13 @@ class FlutterFlowTheme {
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
-    String fontFamily,
-    Color color,
-    double fontSize,
-    FontWeight fontWeight,
-    FontStyle fontStyle,
+    required String fontFamily,
+    required Color color,
+    required double fontSize,
+    required FontWeight fontWeight,
+    required FontStyle fontStyle,
     bool useGoogleFonts = true,
-    double lineHeight,
+    required double lineHeight,
   }) =>
       useGoogleFonts
           ? GoogleFonts.getFont(
