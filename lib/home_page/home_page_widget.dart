@@ -1,6 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/widgets/index.dart' as custom_widgets;
+import '../flutter_flow/flutter_flow_widgets.dart';
+import '../custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,9 +21,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFFF5F5F5),
       body: SafeArea(
-        child: custom_widgets.HealthAppScreen(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 1,
+        child: FFButtonWidget(
+          onPressed: () async {
+            await actions.authorize();
+          },
+          text: 'Button',
+          options: FFButtonOptions(
+            width: 130,
+            height: 40,
+            color: FlutterFlowTheme.primaryColor,
+            textStyle: FlutterFlowTheme.subtitle2.override(
+              fontFamily: 'Poppins',
+              color: Colors.white,
+            ),
+            borderSide: BorderSide(
+              color: Colors.transparent,
+              width: 1,
+            ),
+            borderRadius: 12,
+          ),
         ),
       ),
     );
