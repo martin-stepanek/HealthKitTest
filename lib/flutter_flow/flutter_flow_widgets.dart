@@ -30,7 +30,6 @@ class FFButtonWidget extends StatefulWidget {
   }) : super(key: key);
 
   final String text;
-  final Widget icon;
   final Function() onPressed;
   final FFButtonOptions options;
   final bool showLoadingIndicator;
@@ -78,40 +77,6 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           }
         : () => widget.onPressed();
 
-    if (widget.icon != null || widget.iconData != null) {
-      textWidget = Flexible(child: textWidget);
-      return Container(
-        height: widget.options.height,
-        width: widget.options.width,
-        child: RaisedButton.icon(
-          icon: Padding(
-            padding: widget.options.iconPadding ?? EdgeInsets.zero,
-            child: widget.icon ??
-                FaIcon(
-                  widget.iconData,
-                  size: widget.options.iconSize,
-                  color: widget.options.iconColor ??
-                      widget.options.textStyle.color,
-                ),
-          ),
-          label: textWidget,
-          onPressed: onPressed,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(widget.options.borderRadius),
-            side: widget.options.borderSide ?? BorderSide.none,
-          ),
-          color: widget.options.color,
-          colorBrightness:
-              ThemeData.estimateBrightnessForColor(widget.options.color),
-          textColor: widget.options.textStyle.color,
-          disabledColor: widget.options.disabledColor,
-          disabledTextColor: widget.options.disabledTextColor,
-          elevation: widget.options.elevation,
-          splashColor: widget.options.splashColor,
-        ),
-      );
-    }
-
     return Container(
       height: widget.options.height,
       width: widget.options.width,
@@ -126,10 +91,6 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
         color: widget.options.color,
         colorBrightness:
             ThemeData.estimateBrightnessForColor(widget.options.color),
-        disabledColor: widget.options.disabledColor,
-        disabledTextColor: widget.options.disabledTextColor,
-        padding: widget.options.padding,
-        elevation: widget.options.elevation,
         child: textWidget,
       ),
     );
