@@ -106,7 +106,7 @@ class _HealthAppState extends State<HealthApp> {
       HealthDataAccess.READ_WRITE,
       HealthDataAccess.READ_WRITE
     ];
-    bool? hasPermissions =
+    bool hasPermissions =
         await HealthFactory.hasPermissions(types, permissions: rights);
     if (hasPermissions == false) {
       await health.requestAuthorization(types, permissions: permissions);
@@ -128,7 +128,7 @@ class _HealthAppState extends State<HealthApp> {
 
   /// Fetch steps from the health plugin and show them in the app.
   Future fetchStepData() async {
-    int? steps;
+    int steps;
 
     // get steps for today (i.e., since midnight)
     final now = DateTime.now();
