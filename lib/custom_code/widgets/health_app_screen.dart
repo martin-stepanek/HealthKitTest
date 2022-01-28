@@ -12,9 +12,9 @@ class HealthAppScreen extends StatefulWidget {
   _HealthAppState createState() => _HealthAppState();
 
   const HealthAppScreen({
-    Key key,
-    this.width,
-    this.height,
+    Key? key,
+    required this.width,
+    required this.height,
   }) : super(key: key);
 
   final double width;
@@ -116,7 +116,7 @@ class _HealthAppState extends State<HealthAppScreen> {
       HealthDataAccess.READ_WRITE,
       HealthDataAccess.READ_WRITE
     ];
-    bool hasPermissions =
+    bool? hasPermissions =
         await HealthFactory.hasPermissions(types, permissions: rights);
     if (hasPermissions == false) {
       await health.requestAuthorization(types, permissions: permissions);
@@ -138,7 +138,7 @@ class _HealthAppState extends State<HealthAppScreen> {
 
   /// Fetch steps from the health plugin and show them in the app.
   Future fetchStepData() async {
-    int steps;
+    int? steps;
 
     // get steps for today (i.e., since midnight)
     final now = DateTime.now();

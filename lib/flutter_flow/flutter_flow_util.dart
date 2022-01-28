@@ -54,12 +54,12 @@ enum DecimalType {
 
 String formatNumber(
   num value, {
-  FormatType formatType,
-  DecimalType decimalType,
-  String currency,
+  FormatType? formatType,
+  DecimalType? decimalType,
+  String? currency,
   bool toLowerCase = false,
-  String format,
-  String locale,
+  String? format,
+  String? locale,
 }) {
   var formattedValue = '';
   switch (formatType) {
@@ -131,7 +131,7 @@ dynamic getJsonField(dynamic response, String jsonPath) {
 
 bool get isAndroid => !kIsWeb && Platform.isAndroid;
 bool responsiveVisibility({
-  @required BuildContext context,
+  required BuildContext context,
   bool phone = true,
   bool tablet = true,
   bool tabletLandscape = true,
@@ -180,7 +180,7 @@ void showSnackbar(
 }
 
 extension FFStringExt on String {
-  String maybeHandleOverflow({int maxChars, String replacement = ''}) =>
+  String maybeHandleOverflow({int? maxChars, String replacement = ''}) =>
       maxChars != null && length > maxChars
           ? replaceRange(maxChars, null, replacement)
           : this;
